@@ -1,0 +1,12 @@
+.Searchbar input {
+  font-style: inherit;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  transition: transform 200ms linear;
+}
+
+.Searchbar input:focus {
+  transform: scaleX(1.1);
+}

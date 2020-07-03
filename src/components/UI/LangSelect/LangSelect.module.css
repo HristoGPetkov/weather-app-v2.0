@@ -1,0 +1,6 @@
+.LangSelect > button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 1px;
+}

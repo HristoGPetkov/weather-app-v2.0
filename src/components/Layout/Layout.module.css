@@ -1,0 +1,6 @@
+.Layout {
+  max-width: 140rem;
+  min-height: calc(100vh - 8rem);
+  margin: 0 auto;
+  background-color: #ccc;
+}

@@ -7,12 +7,14 @@ import {
   fetchSearchData,
   fetchCurrentWeatherData,
 } from "./store/actions";
-import Spinner from "./components/Spinner/Spinner";
+
+import Layout from "./components/Layout/Layout";
+import Spinner from "./components/UI/Spinner/Spinner";
 
 class App extends Component {
   componentDidMount() {
     console.log("COMPONENT DID MOUNT APP");
-    this.props.fetchData(this.props.language);
+    //this.props.fetchData(this.props.language);
   }
 
   handler = () => {
@@ -26,30 +28,23 @@ class App extends Component {
   };
 
   render() {
-    let app = "App";
+    // let app = "App";
 
-    if (this.props.loading) {
-      app = <Spinner />;
-    }
+    // if (this.props.loading) {
+    //   app = <Spinner />;
+    // }
 
-    let d = {};
+    // let d = {};
 
-    if (this.props.isSearching) {
-      d = this.props.searchData;
-    } else {
-      d = this.props.geolocationData;
-    }
+    // if (this.props.isSearching) {
+    //   d = this.props.searchData;
+    // } else {
+    //   d = this.props.geolocationData;
+    // }
 
-    console.log(d);
+    // console.log(d);
 
-    return (
-      <>
-        <div className="App" onClick={this.handler}>
-          {app}
-        </div>
-        <button onClick={this.currentHandler}>current weather</button>
-      </>
-    );
+    return <Layout>App</Layout>;
   }
 }
 
