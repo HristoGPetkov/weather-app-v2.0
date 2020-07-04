@@ -21,7 +21,7 @@ export const fetchSearchData = (cityName, language) => {
     dispatch(setSearchingStart());
 
     fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&lang=${language}&appid=${apKey}`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&lang=${language}&appid=${apKey}&units=metric`
     )
       .then((response) => response.json())
       .then((json) => {

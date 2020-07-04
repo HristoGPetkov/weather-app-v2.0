@@ -1,0 +1,15 @@
+.WeatherItem {
+  padding: 2rem 1rem;
+  cursor: pointer;
+  background-color: blue;
+  color: #fff;
+  font-size: 1.6rem;
+  transition: transform 200ms linear;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.WeatherItem:hover {
+  transform: scale(1.05);
+}

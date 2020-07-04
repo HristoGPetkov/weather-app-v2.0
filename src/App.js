@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "./App.css";
 import { connect } from "react-redux";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import {
   fetchWeatherData,
@@ -9,12 +9,15 @@ import {
 } from "./store/actions";
 
 import Layout from "./components/Layout/Layout";
+import WeatherItems from "./components/WeatherItems/WeatherItems";
+import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
+import WeatherDetails from "./components/WeatherDetails/WeatherDetails";
 import Spinner from "./components/UI/Spinner/Spinner";
 
 class App extends Component {
   componentDidMount() {
     console.log("COMPONENT DID MOUNT APP");
-    //this.props.fetchData(this.props.language);
+    this.props.fetchData(this.props.language);
   }
 
   handler = () => {
@@ -22,29 +25,23 @@ class App extends Component {
   };
 
   currentHandler = () => {
-    const { fetchCurrent, city, coutry, language } = this.props;
+    const { fetchCurrent, city, country, language } = this.props;
 
-    fetchCurrent(city, coutry, language);
+    fetchCurrent(city, country, language);
   };
 
   render() {
-    // let app = "App";
-
-    // if (this.props.loading) {
-    //   app = <Spinner />;
-    // }
-
-    // let d = {};
-
-    // if (this.props.isSearching) {
-    //   d = this.props.searchData;
-    // } else {
-    //   d = this.props.geolocationData;
-    // }
-
-    // console.log(d);
-
-    return <Layout>App</Layout>;
+    return (
+      <Layout>
+        <button onClick={this.handler}>Search</button>
+        <Switch>
+          <Route path="/item/:id" component={WeatherDetails} />
+          <Route path="/current-weather" component={CurrentWeather} />
+          <Route path="/" exact component={WeatherItems} />
+          <Redirect to="/" />
+        </Switch>
+      </Layout>
+    );
   }
 }
 
@@ -56,7 +53,7 @@ const mapStateToProps = (state) => {
     searchData: state.searchReducer.data,
     language: state.generalReducer.language,
     city: state.generalReducer.city,
-    coutry: state.generalReducer.coutry,
+    country: state.generalReducer.country,
   };
 };
 

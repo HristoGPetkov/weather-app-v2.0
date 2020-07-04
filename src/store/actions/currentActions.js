@@ -14,7 +14,7 @@ export const fetchCurrentWeatherData = (cityName, country, language) => {
     dispatch(loadingStart());
 
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${cityName},${country}&lang=${language}&appid=${apKey}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityName},${country}&lang=${language}&appid=${apKey}&units=metric`
     )
       .then((response) => response.json())
       .then((json) => {

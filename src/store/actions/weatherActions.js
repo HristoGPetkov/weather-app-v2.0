@@ -34,7 +34,7 @@ export const fetchWeatherData = (language) => {
         dispatch(setSerchingEnd());
         const { latitude, longitude } = data.coords;
         fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&lang=${language}&appid=${apKey}`
+          `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&lang=${language}&appid=${apKey}&units=metric`
         )
           .then((response) => response.json())
           .then((json) => {

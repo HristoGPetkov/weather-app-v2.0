@@ -1,0 +1,50 @@
+.WeatherDetail {
+  padding: 4rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(max-content, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.WeatherDetail > * {
+  padding: 0 1rem;
+}
+
+.Date {
+  grid-column: 1 / -1;
+}
+.TimeIcon {
+}
+.WeatherIcon {
+}
+.Time {
+}
+.Temp {
+}
+.Description {
+  grid-column: 1 / -1;
+}
+.Humidity {
+  justify-self: end;
+}
+.HumidityIcon {
+  justify-self: start;
+}
+.WindSpeed {
+  justify-self: end;
+}
+.WindSpeedIcon {
+  justify-self: start;
+}
+.WindDir {
+  justify-self: end;
+}
+.WindDirIcon {
+  justify-self: start;
+}
+.Pressure {
+  justify-self: end;
+}
+.PressureIcon {
+  justify-self: start;
+}

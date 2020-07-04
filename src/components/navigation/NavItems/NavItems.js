@@ -8,8 +8,10 @@ import Searchbar from "../../UI/Searchbar/Searchbar";
 const NavItems = () => {
   return (
     <ul className={classes.NavItems}>
-      <NavItem to={"/"}>Weekly weather</NavItem>
-      <NavItem to={"/"}>Current weather</NavItem>
+      <NavItem exact to={"/"}>
+        Weekly weather
+      </NavItem>
+      <NavItem to={"/current-weather"}>Current weather</NavItem>
       <Searchbar />
       <LangSelect />
     </ul>

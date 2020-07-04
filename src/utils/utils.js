@@ -28,3 +28,80 @@ export const transformData = (weatherData) => {
 };
 
 export const apKey = "db22667d97bca1b4a8271f34ca5806dc";
+
+export const getDayOfWeek = (day, lang) => {
+  let today = "";
+  switch (day.toString()) {
+    case "0":
+      today = lang === "en" ? "Sunday" : "Неделя";
+      break;
+    case "1":
+      today = lang === "en" ? "Monday" : "Понеделник";
+      break;
+    case "2":
+      today = lang === "en" ? "Tuesday" : "Вторник";
+      break;
+    case "3":
+      today = lang === "en" ? "Wednesday" : "Сряда";
+      break;
+    case "4":
+      today = lang === "en" ? "Thursday" : "Четвъртък";
+      break;
+    case "5":
+      today = lang === "en" ? "Friday" : "Петък";
+      break;
+    case "6":
+      today = lang === "en" ? "Saturday" : "Събота";
+      break;
+    default:
+      return null;
+  }
+
+  return today;
+};
+
+export const getDirection = (degree, language) => {
+  const directions = {
+    en: [
+      "North",
+      "North-East",
+      "East",
+      "South-East",
+      "South",
+      "South-West",
+      "West",
+      "North-West",
+    ],
+    bg: [
+      "Север",
+      "Североизток",
+      "Изток",
+      "Югоизток",
+      "Юг",
+      "Югозапад",
+      "Запад",
+      "Северозапад",
+    ],
+  };
+
+  const index =
+    Math.round(((degree %= 360) < 0 ? degree + 360 : degree) / 45) % 8;
+  const direction =
+    language === "en" ? directions.en[index] : directions.bg[index];
+  return direction;
+};
+
+export const formatHours = (date) => {
+  if (date.getHours() === 0) return 12;
+  return date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
+};
+
+export const getCurrentTime = (date) => {
+  let h = date.getHours();
+  let m = date.getMinutes();
+
+  if (h < 10) h = "0" + h;
+  if (m < 10) m = "0" + m;
+
+  return h + ":" + m;
+};
