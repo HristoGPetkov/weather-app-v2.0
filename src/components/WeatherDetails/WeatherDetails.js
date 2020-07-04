@@ -1,8 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+
+import WeatherDetail from "./WeatherDetail/WeatherDetail";
 
 const WeatherDetails = (props) => {
-  let data = {};
+  let data = [];
   const id = props.match.params.id;
 
   if (props.isSearching) {
@@ -11,13 +14,34 @@ const WeatherDetails = (props) => {
     data = props.geolocationData[id];
   }
 
-  console.log(data);
+  let output = null;
 
-  return (
-    <div>
-      <div></div>
-    </div>
-  );
+  if (!data || data.length === 0) {
+    output = <Redirect to="/" />;
+  } else {
+    output = data.map((item) => {
+      const currentDate = item.dt_txt;
+      const { description, icon } = item.weather[0];
+      const { temp, humidity, pressure } = item.main;
+      const { speed: windSpeed, deg: windDeg } = item.wind;
+
+      return (
+        <WeatherDetail
+          key={currentDate}
+          currentDate={currentDate}
+          description={description}
+          icon={icon}
+          temp={temp}
+          humidity={humidity}
+          pressure={pressure}
+          windSpeed={windSpeed}
+          windDeg={windDeg}
+        />
+      );
+    });
+  }
+
+  return <div>{output}</div>;
 };
 
 const mapStateToProps = (state) => {

@@ -20,20 +20,9 @@ class App extends Component {
     this.props.fetchData(this.props.language);
   }
 
-  handler = () => {
-    this.props.fetchSearch("Варна", "bg");
-  };
-
-  currentHandler = () => {
-    const { fetchCurrent, city, country, language } = this.props;
-
-    fetchCurrent(city, country, language);
-  };
-
   render() {
     return (
       <Layout>
-        <button onClick={this.handler}>Search</button>
         <Switch>
           <Route path="/item/:id" component={WeatherDetails} />
           <Route path="/current-weather" component={CurrentWeather} />

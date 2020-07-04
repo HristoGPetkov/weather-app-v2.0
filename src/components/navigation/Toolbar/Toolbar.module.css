@@ -1,4 +1,15 @@
 .Toolbar {
   height: 8rem;
   background-color: blue;
+  display: flex;
+}
+.Toolbar > h1 {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+}
+.Toolbar > h1 > span {
+  margin-left: 2px;
+  font-size: 1.8rem;
 }

@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
 
+import { fetchSearchData } from "../../../store/actions";
 import classes from "./Searchbar.module.css";
 
-const Searchbar = () => {
+const Searchbar = (props) => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    props.sendSearch(searchTerm, props.language);
+  };
+
   return (
-    <form className={classes.Searchbar}>
+    <form className={classes.Searchbar} onSubmit={submitHandler}>
       <label htmlFor="search"></label>
       <input
         type="text"
@@ -12,9 +22,23 @@ const Searchbar = () => {
         id="search"
         placeholder="Search city"
         autoComplete="off"
+        value={searchTerm}
+        onChange={(event) => setSearchTerm(event.target.value)}
       />
     </form>
   );
 };
 
-export default Searchbar;
+const mapStateToProps = (state) => {
+  return {
+    language: state.generalReducer.language,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    sendSearch: (term, lang) => dispatch(fetchSearchData(term, lang)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Searchbar);
