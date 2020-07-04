@@ -21,7 +21,7 @@ const WeatherDetails = (props) => {
   } else {
     output = data.map((item) => {
       const currentDate = item.dt_txt;
-      const { description, icon } = item.weather[0];
+      const { description, id: iconId } = item.weather[0];
       const { temp, humidity, pressure } = item.main;
       const { speed: windSpeed, deg: windDeg } = item.wind;
 
@@ -30,12 +30,13 @@ const WeatherDetails = (props) => {
           key={currentDate}
           currentDate={currentDate}
           description={description}
-          icon={icon}
+          iconId={iconId}
           temp={temp}
           humidity={humidity}
           pressure={pressure}
           windSpeed={windSpeed}
           windDeg={windDeg}
+          language={props.language}
         />
       );
     });

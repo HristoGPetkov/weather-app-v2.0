@@ -60,7 +60,7 @@ export const getDayOfWeek = (day, lang) => {
   return today;
 };
 
-export const getDirection = (degree, language) => {
+export const getWindDirection = (degree, language) => {
   const directions = {
     en: [
       "North",
@@ -87,7 +87,7 @@ export const getDirection = (degree, language) => {
   const index =
     Math.round(((degree %= 360) < 0 ? degree + 360 : degree) / 45) % 8;
   const direction =
-    language === "en" ? directions.en[index] : directions.bg[index];
+    language === "bg" ? directions.bg[index] : directions.en[index];
   return direction;
 };
 

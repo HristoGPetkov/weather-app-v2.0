@@ -25,19 +25,20 @@ class CurrentWeather extends Component {
     }
 
     if (!this.props.Loading && summary.weather) {
-      const { description, icon } = summary.weather[0];
+      const { description, id: iconId } = summary.weather[0];
       const { temp, humidity, pressure } = summary.main;
       const { speed: windSpeed, deg: windDeg } = summary.wind;
 
       output = (
         <WeatherDetail
           description={description}
-          icon={icon}
+          iconId={iconId}
           temp={temp}
           humidity={humidity}
           pressure={pressure}
           windSpeed={windSpeed}
           windDeg={windDeg}
+          language={this.props.language}
         />
       );
     }

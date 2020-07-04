@@ -9,6 +9,7 @@ const Searchbar = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    if (!searchTerm.trim()) return;
 
     props.sendSearch(searchTerm, props.language);
   };
@@ -20,7 +21,7 @@ const Searchbar = (props) => {
         type="text"
         name="search"
         id="search"
-        placeholder="Search city"
+        placeholder="Search for city forecast"
         autoComplete="off"
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}

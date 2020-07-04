@@ -12,7 +12,6 @@ import Layout from "./components/Layout/Layout";
 import WeatherItems from "./components/WeatherItems/WeatherItems";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
 import WeatherDetails from "./components/WeatherDetails/WeatherDetails";
-import Spinner from "./components/UI/Spinner/Spinner";
 
 class App extends Component {
   componentDidMount() {

@@ -1,6 +1,12 @@
+.LangSelect {
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
+}
+
 .LangSelect > button {
   border: none;
   outline: none;
   cursor: pointer;
-  margin: 1px;
+  margin-right: 2px;
 }

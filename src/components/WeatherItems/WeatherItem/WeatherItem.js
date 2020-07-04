@@ -21,7 +21,7 @@ const WeatherItem = ({
     >
       <h4>{weekday}</h4>
       <p>{date}</p>
-      {/* <i className={`wi wi-owm-day-${iconId}`} /> */}
+      <i className={`wi wi-owm-day-${iconId}`} />
       <p>{language === "en" ? "min / max" : "мин / макс"}</p>
       <p>
         {Math.round(minTemp)} &deg;C | {Math.round(maxTemp)} &deg;C

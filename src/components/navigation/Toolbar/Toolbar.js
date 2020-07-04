@@ -3,14 +3,16 @@ import { connect } from "react-redux";
 
 import classes from "./Toolbar.module.css";
 import NavItems from "../NavItems/NavItems";
+import LangSelect from "../../UI/LangSelect/LangSelect";
 
 const Toolbar = (props) => {
   return (
     <header className={classes.Toolbar}>
       <h1>
-        {props.city}, <span>{props.country}</span>
+        {props.city} <span>{props.country}</span>
       </h1>
       <NavItems />
+      <LangSelect />
     </header>
   );
 };

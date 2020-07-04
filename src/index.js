@@ -6,6 +6,8 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 
 import "./index.css";
+import "./assets/icons/css/weather-icons.css";
+import "./assets/icons/css/weather-icons-wind.css";
 import App from "./App";
 import geolocationReducer from "./store/reducers/geolocationReducer";
 import generalReducer from "./store/reducers/generalReducer";
