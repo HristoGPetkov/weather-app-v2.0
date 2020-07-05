@@ -14,3 +14,13 @@
 .Searchbar input:focus::placeholder {
   font-size: 0;
 }
+
+@media only screen and (max-width: 50em) {
+  .Searchbar input {
+    font-size: 2.2rem;
+  }
+
+  .Searchbar {
+    order: -1;
+  }
+}

@@ -17,7 +17,7 @@ const Toolbar = (props) => {
         {props.city}
         <span>{props.country}</span>
       </h1>
-      <NavItems language={props.language} />
+      <NavItems />
       <LangSelect />
     </header>
   );

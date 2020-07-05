@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import classes from "./NavItems.module.css";
 import NavItem from "./NavItem/NavItem";
@@ -19,4 +20,8 @@ const NavItems = ({ language }) => {
   );
 };
 
-export default NavItems;
+const mapStateToProps = (state) => ({
+  language: state.generalReducer.language,
+});
+
+export default connect(mapStateToProps)(NavItems);
