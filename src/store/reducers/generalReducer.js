@@ -25,6 +25,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, isSearching: true };
     case actionTypes.SEARCHING_END:
       return { ...state, isSearching: false };
+    case actionTypes.SET_LANGUAGE:
+      return { ...state, language: action.language };
     default:
       return state;
   }

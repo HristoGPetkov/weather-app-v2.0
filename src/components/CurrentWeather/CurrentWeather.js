@@ -16,6 +16,18 @@ class CurrentWeather extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    const { fetchCurrentData, language, city, country } = this.props;
+
+    if (!city) {
+      this.props.history.replace("/");
+    }
+
+    if (prevProps.language !== this.props.language) {
+      fetchCurrentData(city, country, language);
+    }
+  }
+
   render() {
     const summary = this.props.data;
     let output = "";

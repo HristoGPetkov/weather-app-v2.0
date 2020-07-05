@@ -2,11 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import {
-  fetchWeatherData,
-  fetchSearchData,
-  fetchCurrentWeatherData,
-} from "./store/actions";
+import { fetchWeatherData } from "./store/actions";
 
 import Layout from "./components/Layout/Layout";
 import WeatherItems from "./components/WeatherItems/WeatherItems";
@@ -15,8 +11,7 @@ import WeatherDetails from "./components/WeatherDetails/WeatherDetails";
 
 class App extends Component {
   componentDidMount() {
-    console.log("COMPONENT DID MOUNT APP");
-    this.props.fetchData(this.props.language);
+    this.props.fetchGeolocationData(this.props.language);
   }
 
   render() {
@@ -37,21 +32,13 @@ const mapStateToProps = (state) => {
   return {
     loading: state.generalReducer.loading,
     isSearching: state.generalReducer.isSearching,
-    geolocationData: state.geolocationReducer.data,
-    searchData: state.searchReducer.data,
     language: state.generalReducer.language,
-    city: state.generalReducer.city,
-    country: state.generalReducer.country,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchData: (lang) => dispatch(fetchWeatherData(lang)),
-    fetchSearch: (cityName, language) =>
-      dispatch(fetchSearchData(cityName, language)),
-    fetchCurrent: (cityName, country, language) =>
-      dispatch(fetchCurrentWeatherData(cityName, country, language)),
+    fetchGeolocationData: (lang) => dispatch(fetchWeatherData(lang)),
   };
 };
 
