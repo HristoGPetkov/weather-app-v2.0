@@ -5,7 +5,11 @@
   max-width: 90%;
   top: 0;
   left: 0;
-  background-color: blue;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color-blue-light),
+    var(--color-blue-dark)
+  );
   z-index: 20;
   padding: 20rem 0;
   transition: transform 300ms linear;

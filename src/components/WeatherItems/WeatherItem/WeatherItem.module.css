@@ -1,15 +1,23 @@
 .WeatherItem {
   padding: 2rem 1rem;
   cursor: pointer;
-  background-color: blue;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color-blue-light),
+    var(--color-blue-dark)
+  );
   color: #fff;
   font-size: 1.6rem;
-  transition: transform 200ms linear;
-
+  transition: transform 200ms linear, box-shadow 200ms linear;
+  box-shadow: 1px 2px 4px var(--color-blue-light);
+  border-radius: 5px;
+  height: 40rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  justify-content: space-around;
 }
 .WeatherItem:hover {
   transform: scale(1.05);
+  box-shadow: 1px 4px 8px var(--color-blue-light);
 }

@@ -24,14 +24,14 @@ export const fetchWeatherSuccess = (data) => ({
 export const loadingStart = () => ({ type: actionTypes.LOADING_START });
 export const loadingEnd = () => ({ type: actionTypes.LOADING_END });
 
-export const setSerchingEnd = () => ({ type: actionTypes.SEARCHING_END });
+export const setSearchingEnd = () => ({ type: actionTypes.SEARCHING_END });
 
 export const fetchWeatherData = (language) => {
   return (dispatch) => {
     getCoords()
       .then((data) => {
         dispatch(loadingStart());
-        dispatch(setSerchingEnd());
+        dispatch(setSearchingEnd());
         const { latitude, longitude } = data.coords;
         fetch(
           `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&lang=${language}&appid=${apKey}&units=metric`

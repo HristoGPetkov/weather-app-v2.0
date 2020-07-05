@@ -1,6 +1,10 @@
 .Toolbar {
   height: 8rem;
-  background-color: blue;
+  background-image: linear-gradient(
+    to right,
+    var(--color-blue-light),
+    var(--color-blue-dark)
+  );
   display: flex;
   align-items: center;
 }

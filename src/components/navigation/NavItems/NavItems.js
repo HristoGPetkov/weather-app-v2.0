@@ -6,15 +6,25 @@ import NavItem from "./NavItem/NavItem";
 import Searchbar from "../../UI/Searchbar/Searchbar";
 import { translate } from "../../../utils/utils";
 
-const NavItems = ({ language }) => {
+const NavItems = ({ language, city, country }) => {
+  let links = null;
+
+  if (city && country) {
+    links = (
+      <>
+        <NavItem exact to={"/"}>
+          {translate(language, "Седмична прогноза", "Weekly forecast")}
+        </NavItem>
+        <NavItem to={"/current-weather"}>
+          {translate(language, "Времето в момента", "Current forecast")}
+        </NavItem>
+      </>
+    );
+  }
+
   return (
     <ul className={classes.NavItems}>
-      <NavItem exact to={"/"}>
-        {translate(language, "Седмична прогноза", "Weekly forecast")}
-      </NavItem>
-      <NavItem to={"/current-weather"}>
-        {translate(language, "Времето в момента", "Current forecast")}
-      </NavItem>
+      {links}
       <Searchbar />
     </ul>
   );
@@ -22,6 +32,8 @@ const NavItems = ({ language }) => {
 
 const mapStateToProps = (state) => ({
   language: state.generalReducer.language,
+  city: state.generalReducer.city,
+  country: state.generalReducer.country,
 });
 
 export default connect(mapStateToProps)(NavItems);
