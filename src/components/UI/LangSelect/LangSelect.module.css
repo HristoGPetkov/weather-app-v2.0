@@ -8,5 +8,13 @@
   border: none;
   outline: none;
   cursor: pointer;
-  margin-right: 2px;
+  margin-right: 0.5rem;
+  width: 4rem;
+  height: 4rem;
+  background: transparent;
+}
+
+.LangSelect > svg {
+  width: 4rem;
+  height: 4rem;
 }

@@ -3,17 +3,18 @@ import React from "react";
 import classes from "./NavItems.module.css";
 import NavItem from "./NavItem/NavItem";
 import Searchbar from "../../UI/Searchbar/Searchbar";
-//import LangSelect from "../../UI/LangSelect/LangSelect";
+import { translate } from "../../../utils/utils";
 
-const NavItems = () => {
+const NavItems = ({ language }) => {
   return (
     <ul className={classes.NavItems}>
       <NavItem exact to={"/"}>
-        Weekly forecast
+        {translate(language, "Седмична прогноза", "Weekly forecast")}
       </NavItem>
-      <NavItem to={"/current-weather"}>Current forecast</NavItem>
+      <NavItem to={"/current-weather"}>
+        {translate(language, "Времето в момента", "Current forecast")}
+      </NavItem>
       <Searchbar />
-      {/* <LangSelect /> */}
     </ul>
   );
 };

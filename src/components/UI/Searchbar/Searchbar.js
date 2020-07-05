@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { fetchSearchData } from "../../../store/actions";
 import classes from "./Searchbar.module.css";
+import { translate } from "../../../utils/utils";
 
 const Searchbar = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -21,7 +22,11 @@ const Searchbar = (props) => {
         type="text"
         name="search"
         id="search"
-        placeholder="Search for city forecast"
+        placeholder={translate(
+          props.language,
+          "Търси прогноза по град",
+          "Search for city forecast"
+        )}
         autoComplete="off"
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}

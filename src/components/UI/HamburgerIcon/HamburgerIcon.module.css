@@ -1,0 +1,50 @@
+.HamburgerIcon {
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+  margin-left: 2rem;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+  z-index: 30;
+}
+
+.Span,
+.Span::before,
+.Span::after {
+  width: 100%;
+  height: 3px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.Span {
+  position: absolute;
+  top: 18.5px;
+  left: 0;
+}
+
+.Span::before,
+.Span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.Span::before {
+  top: -18.5px;
+}
+.Span::after {
+  top: 17px;
+}
+
+.open .Span {
+  background-color: red;
+  width: 200%;
+}
+
+@media only screen and (min-width: 50em) {
+  .HamburgerIcon {
+    display: none;
+  }
+}

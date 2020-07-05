@@ -2,6 +2,7 @@
   height: 8rem;
   background-color: blue;
   display: flex;
+  align-items: center;
 }
 .Toolbar > h1 {
   color: #fff;
@@ -12,4 +13,13 @@
 .Toolbar > h1 > span {
   margin-left: 2px;
   font-size: 1.8rem;
+}
+
+@media only screen and (max-width: 50em) {
+  .Toolbar {
+    justify-content: space-between;
+  }
+  .Toolbar > ul {
+    display: none;
+  }
 }

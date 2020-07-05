@@ -105,3 +105,6 @@ export const getCurrentTime = (date) => {
 
   return h + ":" + m;
 };
+
+export const translate = (lang, bgWord, enWord) =>
+  lang === "bg" ? bgWord : enWord;

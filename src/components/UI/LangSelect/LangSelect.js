@@ -8,9 +8,12 @@ import {
   fetchSearchData,
 } from "../../../store/actions";
 
+import { ReactComponent as BgFlag } from "../../../assets/flags/bg.svg";
+import { ReactComponent as GbFlag } from "../../../assets/flags/gb.svg";
+
 const LangSelect = (props) => {
   const clickHandler = (e) => {
-    const language = e.target.dataset.lang;
+    const language = e.currentTarget.dataset.lang;
 
     if (props.prevLang === language) return;
 
@@ -28,10 +31,10 @@ const LangSelect = (props) => {
   return (
     <div className={classes.LangSelect}>
       <button data-lang="en" onClick={clickHandler}>
-        EN
+        <GbFlag />
       </button>
       <button data-lang="bg" onClick={clickHandler}>
-        BG
+        <BgFlag />
       </button>
     </div>
   );
