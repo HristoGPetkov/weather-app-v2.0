@@ -5,6 +5,7 @@ import Toolbar from "../navigation/Toolbar/Toolbar";
 import Sidedrawer from "../navigation/Sidedrawer/Sidedrawer";
 import NavItems from "../navigation/NavItems/NavItems";
 import Backdrop from "../UI/Backdrop/Backdrop";
+import ScrollTop from "../UI/ScrollTop/ScrollTop";
 
 const Layout = (props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,6 +24,7 @@ const Layout = (props) => {
         isMenuOpen={isMenuOpen}
       />
       <main className={classes.Layout}>{props.children}</main>
+      <ScrollTop />
     </>
   );
 };

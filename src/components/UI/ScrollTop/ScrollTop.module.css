@@ -1,0 +1,37 @@
+.ScrollTop {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-pink-light);
+  color: #fff;
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  cursor: pointer;
+  display: none;
+}
+
+.ScrollTop:before,
+.ScrollTop::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background-color: #fff;
+  top: 25%;
+  left: 50%;
+}
+
+.ScrollTop:before {
+  transform-origin: 0;
+  transform: rotate(135deg);
+}
+
+.ScrollTop::after {
+  transform-origin: 0;
+  transform: rotate(45deg);
+}
+
+.Show {
+  display: block;
+}
