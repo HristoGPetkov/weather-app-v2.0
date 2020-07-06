@@ -23,7 +23,11 @@ class CurrentWeather extends Component {
       this.props.history.replace("/");
     }
 
-    if (prevProps.language !== this.props.language) {
+    if (
+      prevProps.language !== this.props.language ||
+      (prevProps.city !== this.props.city &&
+        prevProps.country !== this.props.country)
+    ) {
       fetchCurrentData(city, country, language);
     }
   }

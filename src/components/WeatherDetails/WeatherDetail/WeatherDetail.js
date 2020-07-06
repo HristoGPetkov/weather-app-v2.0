@@ -24,15 +24,24 @@ const WeatherDetail = ({
   const d = currentDate ? new Date(currentDate) : new Date();
   const date = d.toLocaleDateString();
   const time = getCurrentTime(d);
+  const isNight = daytime.slice(-1) === "n";
 
   const weatherIconClasses = [classes.WeatherIcon];
 
   if (main.includes("Clear")) {
-    weatherIconClasses.push(classes.Clear);
+    if (temp > 29) {
+      weatherIconClasses.push(classes.Hot);
+    } else {
+      weatherIconClasses.push(classes.Clear);
+    }
   }
 
   if (["Rain", "Thunderstorm", "Drizzle"].includes(main)) {
     weatherIconClasses.push(classes.Rain);
+  }
+
+  if (isNight) {
+    weatherIconClasses.push(classes.Night);
   }
 
   return (
@@ -42,7 +51,7 @@ const WeatherDetail = ({
         <i className={`wi wi-time-${formatHours(d)}`}></i>
       </div>
       <div className={weatherIconClasses.join(" ")}>
-        <i className={`wi wi-owm-day-${iconId}`}></i>
+        <i className={`wi wi-owm-${isNight ? "night" : "day"}-${iconId}`}></i>
       </div>
       <p className={classes.Time}>{time}</p>
       <p className={classes.Temp}>{Math.round(temp)} &deg;C</p>

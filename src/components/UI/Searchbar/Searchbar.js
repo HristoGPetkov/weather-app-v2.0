@@ -13,6 +13,7 @@ const Searchbar = (props) => {
     if (!searchTerm.trim()) return;
 
     props.sendSearch(searchTerm, props.language);
+    setSearchTerm("");
   };
 
   return (

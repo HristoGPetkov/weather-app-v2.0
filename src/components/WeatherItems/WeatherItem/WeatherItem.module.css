@@ -32,6 +32,9 @@
 .WeatherItem.Rain > i {
   color: var(--color-blue-darkest);
 }
+.WeatherItem.Hot > i {
+  color: var(--color-orange-dark);
+}
 
 .Description {
   font-size: 1.8rem;

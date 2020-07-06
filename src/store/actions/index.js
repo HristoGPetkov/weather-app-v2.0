@@ -3,8 +3,7 @@ export {
   loadingEnd,
   loadingStart,
   fetchWeatherFail,
-  changeCity,
-  changeCountry,
+  changeCityAndCountry,
 } from "./weatherActions";
 
 export { fetchSearchData } from "./searchActions";

@@ -2,8 +2,7 @@ import * as actionTypes from "./actionTypes";
 import {
   loadingEnd,
   loadingStart,
-  changeCity,
-  changeCountry,
+  changeCityAndCountry,
   fetchWeatherFail,
 } from "./index";
 import { transformData, apKey } from "../../utils/utils";
@@ -25,8 +24,7 @@ export const fetchSearchData = (cityName, language) => {
     )
       .then((response) => response.json())
       .then((json) => {
-        dispatch(changeCity(json.city.name));
-        dispatch(changeCountry(json.city.country));
+        dispatch(changeCityAndCountry(json.city.name, json.city.country));
         const data = transformData(json);
 
         dispatch(fetchSearchSuccess(data));

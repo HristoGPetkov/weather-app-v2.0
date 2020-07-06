@@ -29,6 +29,13 @@
 .WeatherIcon.Rain {
   color: var(--color-blue-darkest);
 }
+.WeatherIcon.Hot {
+  color: var(--color-orange-dark);
+}
+
+.WeatherIcon.Night {
+  color: var(--color-blue-dark);
+}
 
 .Description {
   grid-column: 1 / -1;

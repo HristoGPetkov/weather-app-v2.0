@@ -20,7 +20,11 @@ const WeatherItem = ({
   const attachedClasses = [classes.WeatherItem];
 
   if (main.includes("Clear")) {
-    attachedClasses.push(classes.Clear);
+    if (maxTemp > 29) {
+      attachedClasses.push(classes.Hot);
+    } else {
+      attachedClasses.push(classes.Clear);
+    }
   }
 
   if (["Rain", "Thunderstorm", "Drizzle"].includes(main)) {

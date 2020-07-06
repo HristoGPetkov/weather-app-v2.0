@@ -1,13 +1,9 @@
 import * as actionTypes from "./actionTypes";
 import { getCoords, transformData, apKey } from "../../utils/utils";
 
-export const changeCity = (city) => ({
-  type: actionTypes.SET_CITY,
+export const changeCityAndCountry = (city, country) => ({
+  type: actionTypes.SET_CITY_AND_COUNTRY,
   city: city,
-});
-
-export const changeCountry = (country) => ({
-  type: actionTypes.SET_COUNTRY,
   country: country,
 });
 
@@ -38,8 +34,7 @@ export const fetchWeatherData = (language) => {
         )
           .then((response) => response.json())
           .then((json) => {
-            dispatch(changeCity(json.city.name));
-            dispatch(changeCountry(json.city.country));
+            dispatch(changeCityAndCountry(json.city.name, json.city.country));
             const data = transformData(json);
 
             dispatch(fetchWeatherSuccess(data));

@@ -17,10 +17,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, loading: true };
     case actionTypes.LOADING_END:
       return { ...state, loading: false };
-    case actionTypes.SET_CITY:
-      return { ...state, city: action.city };
-    case actionTypes.SET_COUNTRY:
-      return { ...state, country: action.country };
+    case actionTypes.SET_CITY_AND_COUNTRY:
+      return { ...state, city: action.city, country: action.country };
     case actionTypes.SEARCHING_START:
       return { ...state, isSearching: true };
     case actionTypes.SEARCHING_END:
