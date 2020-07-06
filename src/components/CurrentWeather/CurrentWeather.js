@@ -37,7 +37,12 @@ class CurrentWeather extends Component {
     }
 
     if (!this.props.Loading && summary.weather) {
-      const { description, id: iconId } = summary.weather[0];
+      const {
+        description,
+        id: iconId,
+        main,
+        icon: daytime,
+      } = summary.weather[0];
       const { temp, humidity, pressure } = summary.main;
       const { speed: windSpeed, deg: windDeg } = summary.wind;
 
@@ -51,6 +56,8 @@ class CurrentWeather extends Component {
           windSpeed={windSpeed}
           windDeg={windDeg}
           language={this.props.language}
+          main={main}
+          daytime={daytime}
         />
       );
     }

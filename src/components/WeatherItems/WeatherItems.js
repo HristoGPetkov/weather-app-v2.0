@@ -19,7 +19,9 @@ const WeatherItems = (props) => {
     const d = new Date(+key);
     const date = d.toLocaleDateString();
     const weekday = getDayOfWeek(d.getDay(), props.language);
-    const { id: iconId, description } = data[key][0].weather[0];
+    const { id: iconId, description, main, icon: daytime } = data[
+      key
+    ][0].weather[0];
 
     output.push(
       <WeatherItem
@@ -32,6 +34,8 @@ const WeatherItems = (props) => {
         date={date}
         iconId={iconId}
         description={description}
+        main={main}
+        daytime={daytime}
       />
     );
   }

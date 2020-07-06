@@ -7,6 +7,8 @@
   --color-orange-dark: #ff7730;
   --color-blue-light: #2998ff;
   --color-blue-dark: #5643fa;
+  --color-blue-darkest: #101d2c;
+  --color-pink-light: #ff3366;
 }
 
 *,
@@ -21,11 +23,6 @@ html {
   box-sizing: border-box;
   /*  10px/16px = 62.5% -> 1rem = 10px  */
   font-size: 62.5%;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(var(--color-blue-light), 0.5),
-    rgba(var(--color-blue-dark), 0.5)
-  );
 }
 
 body {

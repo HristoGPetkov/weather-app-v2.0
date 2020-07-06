@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 
 import classes from "./WeatherItem.module.css";
+import { translate } from "../../../utils/utils";
 
 const WeatherItem = ({
   id,
@@ -12,21 +13,33 @@ const WeatherItem = ({
   date,
   iconId,
   description,
+  main,
+  daytime,
   history,
 }) => {
+  const attachedClasses = [classes.WeatherItem];
+
+  if (main.includes("Clear")) {
+    attachedClasses.push(classes.Clear);
+  }
+
+  if (["Rain", "Thunderstorm", "Drizzle"].includes(main)) {
+    attachedClasses.push(classes.Rain);
+  }
+
   return (
     <div
-      className={classes.WeatherItem}
+      className={attachedClasses.join(" ")}
       onClick={() => history.push(`/item/${id}`)}
     >
       <h4>{weekday}</h4>
       <p>{date}</p>
       <i className={`wi wi-owm-day-${iconId}`} />
-      <p>{language === "en" ? "min / max" : "мин / макс"}</p>
+      <p>{translate(language, "мин / макс", "min / max")}</p>
       <p>
         {Math.round(minTemp)} &deg;C | {Math.round(maxTemp)} &deg;C
       </p>
-      <p>{description}</p>
+      <p className={classes.Description}>{description}</p>
     </div>
   );
 };

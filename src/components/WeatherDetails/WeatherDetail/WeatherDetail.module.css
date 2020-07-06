@@ -4,6 +4,7 @@
   grid-template-columns: repeat(2, minmax(max-content, 1fr));
   gap: 2rem;
   justify-items: center;
+  align-items: center;
   font-size: 1.6rem;
   background-color: var(--color-blue-light);
 }
@@ -16,16 +17,24 @@
 .Date {
   grid-column: 1 / -1;
 }
-.TimeIcon {
-}
+.TimeIcon,
 .WeatherIcon {
+  font-size: 6rem;
 }
-.Time {
+
+.WeatherIcon.Clear {
+  color: var(--color-orange-light);
 }
-.Temp {
+
+.WeatherIcon.Rain {
+  color: var(--color-blue-darkest);
 }
+
 .Description {
   grid-column: 1 / -1;
+}
+.Description::first-letter {
+  text-transform: capitalize;
 }
 .Humidity {
   justify-self: end;
@@ -50,4 +59,20 @@
 }
 .PressureIcon {
   justify-self: start;
+}
+
+.HumidityIcon,
+.WindSpeedIcon,
+.WindDirIcon,
+.PressureIcon {
+  display: flex;
+  align-items: center;
+}
+
+.HumidityIcon > i,
+.WindSpeedIcon > i,
+.WindDirIcon > i,
+.PressureIcon > i {
+  font-size: 3rem;
+  margin-right: 1rem;
 }

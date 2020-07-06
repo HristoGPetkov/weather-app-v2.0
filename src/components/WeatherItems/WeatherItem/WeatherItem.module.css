@@ -21,3 +21,23 @@
   transform: scale(1.05);
   box-shadow: 1px 4px 8px var(--color-blue-light);
 }
+
+.WeatherItem > i {
+  font-size: 6rem;
+}
+.WeatherItem.Clear > i {
+  color: var(--color-orange-light);
+}
+
+.WeatherItem.Rain > i {
+  color: var(--color-blue-darkest);
+}
+
+.Description {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.Description::first-letter {
+  text-transform: capitalize;
+}

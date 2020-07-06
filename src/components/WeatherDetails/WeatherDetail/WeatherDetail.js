@@ -18,10 +18,22 @@ const WeatherDetail = ({
   windDeg,
   windSpeed,
   language,
+  main,
+  daytime,
 }) => {
   const d = currentDate ? new Date(currentDate) : new Date();
   const date = d.toLocaleDateString();
   const time = getCurrentTime(d);
+
+  const weatherIconClasses = [classes.WeatherIcon];
+
+  if (main.includes("Clear")) {
+    weatherIconClasses.push(classes.Clear);
+  }
+
+  if (["Rain", "Thunderstorm", "Drizzle"].includes(main)) {
+    weatherIconClasses.push(classes.Rain);
+  }
 
   return (
     <div className={classes.WeatherDetail}>
@@ -29,13 +41,11 @@ const WeatherDetail = ({
       <div className={classes.TimeIcon}>
         <i className={`wi wi-time-${formatHours(d)}`}></i>
       </div>
-      <div className={classes.WeatherIcon}>
+      <div className={weatherIconClasses.join(" ")}>
         <i className={`wi wi-owm-day-${iconId}`}></i>
       </div>
       <p className={classes.Time}>{time}</p>
-      <p className={classes.Temp}>
-        {Math.round(temp)} <i className="wi wi-celsius"></i>
-      </p>
+      <p className={classes.Temp}>{Math.round(temp)} &deg;C</p>
       <p className={classes.Description}>{description}</p>
       <p className={classes.Humidity}>
         {translate(language, "Влажност", "Humidity")}
