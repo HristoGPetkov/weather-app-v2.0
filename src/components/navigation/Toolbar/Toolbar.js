@@ -25,7 +25,6 @@ const Toolbar = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    language: state.generalReducer.language,
     city: state.generalReducer.city,
     country: state.generalReducer.country,
   };

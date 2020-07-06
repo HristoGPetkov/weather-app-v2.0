@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
@@ -6,6 +6,10 @@ import WeatherDetail from "./WeatherDetail/WeatherDetail";
 import classes from "./WeatherDetails.module.css";
 
 const WeatherDetails = (props) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   let data = [];
   const id = props.match.params.id;
 

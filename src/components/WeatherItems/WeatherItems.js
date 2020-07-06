@@ -4,13 +4,14 @@ import { connect } from "react-redux";
 import { getDayOfWeek } from "../../utils/utils";
 import classes from "./WeatherItems.module.css";
 import WeatherItem from "./WeatherItem/WeatherItem";
+import Spinner from "../UI/Spinner/Spinner";
 
 const WeatherItems = (props) => {
   let data = props.geolocationData;
 
   if (props.isSearching) data = props.searchData;
 
-  let output = [];
+  let weatherItems = [];
 
   for (let key in data) {
     const tempsArray = data[key].map((elem) => elem.main.temp);
@@ -23,7 +24,7 @@ const WeatherItems = (props) => {
       key
     ][0].weather[0];
 
-    output.push(
+    weatherItems.push(
       <WeatherItem
         key={key}
         id={key}
@@ -38,6 +39,14 @@ const WeatherItems = (props) => {
         daytime={daytime}
       />
     );
+  }
+
+  let output;
+
+  if (props.loading) {
+    output = <Spinner />;
+  } else {
+    output = weatherItems;
   }
 
   return <div className={classes.WeatherItems}>{output}</div>;

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import classes from "./CurrentWeather.module.css";
 import { fetchCurrentWeatherData } from "../../store/actions";
 import WeatherDetail from "../WeatherDetails/WeatherDetail/WeatherDetail";
+import Spinner from "../UI/Spinner/Spinner";
 
 class CurrentWeather extends Component {
   componentDidMount() {
@@ -36,11 +37,11 @@ class CurrentWeather extends Component {
     const summary = this.props.data;
     let output = "";
 
-    if (this.props.Loading) {
-      output = "Loading";
+    if (this.props.loading) {
+      output = <Spinner />;
     }
 
-    if (!this.props.Loading && summary.weather) {
+    if (!this.props.loading && summary.weather) {
       const {
         description,
         id: iconId,
@@ -76,7 +77,7 @@ const mapStateToProps = (state) => {
     language: state.generalReducer.language,
     city: state.generalReducer.city,
     country: state.generalReducer.country,
-    Loading: state.generalReducer.Loading,
+    loading: state.generalReducer.loading,
   };
 };
 

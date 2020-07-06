@@ -14,8 +14,6 @@ const Searchbar = (props) => {
 
     props.sendSearch(searchTerm, props.language);
     setSearchTerm("");
-
-    if (props.closeMenu) props.closeMenu();
   };
 
   return (

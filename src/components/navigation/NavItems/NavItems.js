@@ -25,7 +25,7 @@ const NavItems = ({ language, city, country, closeMenu }) => {
   return (
     <ul className={classes.NavItems}>
       {links}
-      <Searchbar closeMenu={closeMenu} />
+      <Searchbar />
     </ul>
   );
 };

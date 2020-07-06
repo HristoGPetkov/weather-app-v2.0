@@ -10,10 +10,10 @@
     var(--color-blue-light),
     var(--color-blue-dark)
   );
-  z-index: 20;
   padding: 20rem 0;
   transition: transform 300ms linear;
   transform: translateX(-100%);
+  z-index: 20;
 }
 
 .Sidedrawer.Open {
