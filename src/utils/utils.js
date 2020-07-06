@@ -1,3 +1,5 @@
+export const apKey = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
+
 export const getCoords = () => {
   if ("geolocation" in navigator) {
     return new Promise((resolve, reject) => {
@@ -26,8 +28,6 @@ export const transformData = (weatherData) => {
 
   return data;
 };
-
-export const apKey = "db22667d97bca1b4a8271f34ca5806dc";
 
 export const getDayOfWeek = (day, lang) => {
   let today = "";
