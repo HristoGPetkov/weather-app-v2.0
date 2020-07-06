@@ -14,7 +14,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.FETCH_WEATHER_FAIL:
       return { ...state, error: action.error };
     case actionTypes.LOADING_START:
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: null };
     case actionTypes.LOADING_END:
       return { ...state, loading: false };
     case actionTypes.SET_CITY_AND_COUNTRY:
