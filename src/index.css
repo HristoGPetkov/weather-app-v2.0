@@ -6,6 +6,7 @@
   --color-orange-light: #ffb900;
   --color-orange-dark: #ff7730;
   --color-blue-light: #2998ff;
+  --color-blue-lightest: #4aa6fc;
   --color-blue-dark: #5643fa;
   --color-blue-darkest: #101d2c;
   --color-pink-light: #ff3366;
@@ -23,6 +24,8 @@ html {
   box-sizing: border-box;
   /*  10px/16px = 62.5% -> 1rem = 10px  */
   font-size: 62.5%;
+  background-color: #ffffff;
+  background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
 }
 
 body {

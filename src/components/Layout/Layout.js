@@ -16,7 +16,7 @@ const Layout = (props) => {
         clickHandler={() => setIsMenuOpen((prevValue) => !prevValue)}
       />
       <Sidedrawer isMenuOpen={isMenuOpen}>
-        <NavItems />
+        <NavItems closeMenu={() => setIsMenuOpen(false)} />
       </Sidedrawer>
       <Toolbar
         toggleMenu={() => setIsMenuOpen((prevValue) => !prevValue)}

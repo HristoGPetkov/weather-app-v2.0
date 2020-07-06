@@ -5,3 +5,10 @@
   gap: 2rem;
   justify-content: center;
 }
+
+@media only screen and (max-width: 37.5em) {
+  .WeatherItems {
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+  }
+}

@@ -14,6 +14,8 @@ const Searchbar = (props) => {
 
     props.sendSearch(searchTerm, props.language);
     setSearchTerm("");
+
+    if (props.closeMenu) props.closeMenu();
   };
 
   return (
@@ -25,8 +27,8 @@ const Searchbar = (props) => {
         id="search"
         placeholder={translate(
           props.language,
-          "Търси прогноза по град",
-          "Search for city forecast"
+          "Търси по име на град",
+          "Search by city name"
         )}
         autoComplete="off"
         value={searchTerm}

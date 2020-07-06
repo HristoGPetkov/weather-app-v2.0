@@ -11,6 +11,7 @@ const NavItem = (props) => {
         activeClassName={classes.active}
         className={classes.NavItem}
         to={props.to}
+        onClick={props.closeMenu}
       >
         {props.children}
       </NavLink>

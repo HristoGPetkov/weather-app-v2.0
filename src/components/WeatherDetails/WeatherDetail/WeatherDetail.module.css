@@ -9,6 +9,22 @@
   background-color: var(--color-blue-light);
 }
 
+.WeatherDetail:first-child {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.WeatherDetail:last-child {
+  border-radius: 0 0 1rem 1rem;
+}
+
+.WeatherDetail:only-child {
+  border-radius: 1rem;
+}
+
+.WeatherDetail:nth-child(even) {
+  background-color: var(--color-blue-lightest);
+}
+
 .WeatherDetail > * {
   padding: 0 1rem;
   color: #fff;
@@ -20,6 +36,12 @@
 .TimeIcon,
 .WeatherIcon {
   font-size: 6rem;
+}
+
+.Time,
+.Temp {
+  font-size: 2rem;
+  font-weight: 400;
 }
 
 .WeatherIcon.Clear {
@@ -39,6 +61,8 @@
 
 .Description {
   grid-column: 1 / -1;
+  font-size: 2rem;
+  font-weight: 400;
 }
 .Description::first-letter {
   text-transform: capitalize;

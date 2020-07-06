@@ -11,15 +11,21 @@
   transition: transform 200ms linear, box-shadow 200ms linear;
   box-shadow: 1px 2px 4px var(--color-blue-light);
   border-radius: 5px;
-  height: 40rem;
+  padding: 4rem 0;
+  /* height: 40rem; */
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: space-around;
 }
+
 .WeatherItem:hover {
   transform: scale(1.05);
   box-shadow: 1px 4px 8px var(--color-blue-light);
+}
+
+.WeatherItem > *:not(:last-child) {
+  padding-bottom: 3rem;
 }
 
 .WeatherItem > i {
@@ -43,4 +49,22 @@
 
 .Description::first-letter {
   text-transform: capitalize;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .WeatherItem {
+    font-size: 2.2rem;
+  }
+
+  .WeatherItem > *:not(:last-child) {
+    padding-bottom: 5rem;
+  }
+
+  .Description {
+    font-size: 2.4rem;
+  }
+
+  .WeatherItem > i {
+    font-size: 8rem;
+  }
 }

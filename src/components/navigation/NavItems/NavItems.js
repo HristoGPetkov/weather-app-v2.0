@@ -6,16 +6,16 @@ import NavItem from "./NavItem/NavItem";
 import Searchbar from "../../UI/Searchbar/Searchbar";
 import { translate } from "../../../utils/utils";
 
-const NavItems = ({ language, city, country }) => {
+const NavItems = ({ language, city, country, closeMenu }) => {
   let links = null;
 
   if (city && country) {
     links = (
       <>
-        <NavItem exact to={"/"}>
+        <NavItem exact to={"/"} closeMenu={closeMenu}>
           {translate(language, "Седмична прогноза", "Weekly forecast")}
         </NavItem>
-        <NavItem to={"/current-weather"}>
+        <NavItem to={"/current-weather"} closeMenu={closeMenu}>
           {translate(language, "Времето в момента", "Current forecast")}
         </NavItem>
       </>
@@ -25,7 +25,7 @@ const NavItems = ({ language, city, country }) => {
   return (
     <ul className={classes.NavItems}>
       {links}
-      <Searchbar />
+      <Searchbar closeMenu={closeMenu} />
     </ul>
   );
 };

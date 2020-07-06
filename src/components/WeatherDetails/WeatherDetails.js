@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 import WeatherDetail from "./WeatherDetail/WeatherDetail";
+import classes from "./WeatherDetails.module.css";
 
 const WeatherDetails = (props) => {
   let data = [];
@@ -44,7 +45,7 @@ const WeatherDetails = (props) => {
     });
   }
 
-  return <div>{output}</div>;
+  return <div className={classes.WeatherDetails}>{output}</div>;
 };
 
 const mapStateToProps = (state) => {
