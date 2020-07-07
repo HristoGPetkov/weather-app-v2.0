@@ -11,8 +11,6 @@ const WeatherItems = (props) => {
 
   if (props.isSearching) data = props.searchData;
 
-  console.log(data);
-
   let weatherItems = [];
 
   for (let key in data) {

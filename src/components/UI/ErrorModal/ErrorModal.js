@@ -22,7 +22,7 @@ const ErrorModal = ({ error, language, clearErr }) => {
 
   return (
     <>
-      <Backdrop show={error} clickHandler={clearErr} />
+      <Backdrop show={error} clickHandler={clearErr} zIndex90 />
       <div className={`${classes.ErrorModal} ${error && classes.Show}`}>
         <h2>
           {translate(language, "Възникна грешка!", "An Error Occurred!")}{" "}

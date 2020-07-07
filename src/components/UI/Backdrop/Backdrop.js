@@ -7,7 +7,10 @@ const Backdrop = (props) => {
 
   if (props.show) {
     output = (
-      <div className={classes.Backdrop} onClick={props.clickHandler}></div>
+      <div
+        className={`${classes.Backdrop} ${props.zIndex90 && classes.zIndex90}`}
+        onClick={props.clickHandler}
+      ></div>
     );
   }
 
