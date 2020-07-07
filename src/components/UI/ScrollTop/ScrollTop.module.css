@@ -23,12 +23,12 @@
 }
 
 .ScrollTop:before {
-  transform-origin: 0;
+  transform-origin: 4%;
   transform: rotate(135deg);
 }
 
 .ScrollTop::after {
-  transform-origin: 0;
+  transform-origin: 4%;
   transform: rotate(45deg);
 }
 
