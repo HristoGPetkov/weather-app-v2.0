@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import { fetchWeatherData } from "./store/actions";
-import { translate } from "./utils/utils";
+import { fetchWeatherData, clearError } from "./store/actions";
 import Layout from "./components/Layout/Layout";
 import WeatherItems from "./components/WeatherItems/WeatherItems";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
 import WeatherDetails from "./components/WeatherDetails/WeatherDetails";
+import ErrorModal from "./components/UI/ErrorModal/ErrorModal";
 
 class App extends Component {
   componentDidMount() {
@@ -15,25 +15,7 @@ class App extends Component {
   }
 
   render() {
-    const { country, city, error, language } = this.props;
-
-    let errorMsg = null;
-
-    if (error) {
-      console.log(error);
-      console.log(error.message);
-    }
-    if (error && error.message === "User denied Geolocation") {
-      errorMsg = (
-        <h1>
-          {translate(
-            language,
-            "Моля използвайте търсачката или позволете геолокация в браузъра!",
-            "Please use the search functionality or enable geolocation in the browser!"
-          )}
-        </h1>
-      );
-    }
+    const { country, city, error, language, clearErr } = this.props;
 
     let routes = (
       <>
@@ -55,7 +37,9 @@ class App extends Component {
 
     return (
       <Layout>
-        {errorMsg}
+        {this.props.error && (
+          <ErrorModal error={error} language={language} clearErr={clearErr} />
+        )}
         <Switch>{routes}</Switch>
       </Layout>
     );
@@ -76,6 +60,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchGeolocationData: (lang) => dispatch(fetchWeatherData(lang)),
+    clearErr: () => dispatch(clearError()),
   };
 };
 

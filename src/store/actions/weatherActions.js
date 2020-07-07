@@ -32,7 +32,16 @@ export const fetchWeatherData = (language) => {
         fetch(
           `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&lang=${language}&appid=${apKey}&units=metric`
         )
-          .then((response) => response.json())
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(
+                "Something went wrong with your request! Error: " +
+                  response.statusText
+              );
+            }
+
+            return response.json();
+          })
           .then((json) => {
             dispatch(changeCityAndCountry(json.city.name, json.city.country));
             const data = transformData(json);

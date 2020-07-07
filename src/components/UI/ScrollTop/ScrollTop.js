@@ -5,6 +5,20 @@ import classes from "./ScrollTop.module.css";
 const ScrollTop = () => {
   const [show, setShow] = useState(false);
 
+  const debounce = (callback, wait) => {
+    let timerId;
+
+    return (...args) => {
+      const context = this;
+
+      clearTimeout(timerId);
+
+      timerId = setTimeout(() => {
+        callback.call(context, ...args);
+      }, wait);
+    };
+  };
+
   const scrollHandler = () => {
     const docHeight = document.documentElement.clientHeight;
 
@@ -12,11 +26,11 @@ const ScrollTop = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", scrollHandler);
+    window.addEventListener("scroll", debounce(scrollHandler, 200));
   }, []);
 
   useEffect(() => {
-    return () => window.removeEventListener("scroll", scrollHandler);
+    return () => window.removeEventListener("scroll", debounce(scrollHandler));
   }, []);
 
   return (

@@ -1,0 +1,59 @@
+.ErrorModal {
+  position: fixed;
+  top: 30vh;
+  left: calc(50% - 20rem);
+  width: 40rem;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  z-index: 100;
+  border-radius: 7px;
+  display: none;
+}
+
+.ErrorModal.Show {
+  display: block;
+}
+
+.ErrorModal h2 {
+  font-size: 2.4rem;
+  margin: 0;
+  padding: 1rem;
+  background: var(--color-pink-light);
+  color: white;
+  border-radius: 7px 7px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ErrorModal h2 > div {
+  margin: 0;
+}
+
+.ErrorModal p {
+  font-size: 2rem;
+  padding: 4rem 2rem;
+}
+
+.Actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+.Actions button {
+  background: var(--color-pink-light);
+  color: white;
+  border: 1px solid var(--color-pink-light);
+  outline: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.Actions button:hover {
+  background: white;
+  color: var(--color-pink-light);
+}

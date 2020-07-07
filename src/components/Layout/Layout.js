@@ -13,7 +13,7 @@ const Layout = (props) => {
   return (
     <>
       <Backdrop
-        isMenuOpen={isMenuOpen}
+        show={isMenuOpen}
         clickHandler={() => setIsMenuOpen((prevValue) => !prevValue)}
       />
       <Sidedrawer isMenuOpen={isMenuOpen}>

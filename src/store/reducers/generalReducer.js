@@ -13,6 +13,8 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.FETCH_WEATHER_FAIL:
       return { ...state, error: action.error };
+    case actionTypes.FETCH_SEARCH_FAIL:
+      return { ...state, isSearching: false, error: action.error };
     case actionTypes.LOADING_START:
       return { ...state, loading: true, error: null };
     case actionTypes.LOADING_END:
@@ -25,6 +27,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, isSearching: false };
     case actionTypes.SET_LANGUAGE:
       return { ...state, language: action.language };
+    case actionTypes.CLEAR_ERROR:
+      return { ...state, error: null };
     default:
       return state;
   }
