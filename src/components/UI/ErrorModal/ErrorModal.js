@@ -6,9 +6,13 @@ import classes from "./ErrorModal.module.css";
 import { translate } from "../../../utils/utils";
 
 const ErrorModal = ({ error, language, clearErr }) => {
-  let errorMsg = error.message;
+  let errorMsg = "";
 
-  if (error.message === "User denied Geolocation") {
+  if (error) {
+    errorMsg = error.message;
+  }
+
+  if (error && error.message === "User denied Geolocation") {
     errorMsg = (
       <>
         {translate(

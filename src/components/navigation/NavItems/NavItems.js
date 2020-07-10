@@ -6,7 +6,7 @@ import NavItem from "./NavItem/NavItem";
 import Searchbar from "../../UI/Searchbar/Searchbar";
 import { translate } from "../../../utils/utils";
 
-const NavItems = ({ language, city, country, closeMenu }) => {
+export const NavItems = ({ language, city, country, closeMenu }) => {
   let links = null;
 
   if (city && country) {

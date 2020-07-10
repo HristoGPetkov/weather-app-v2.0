@@ -4,10 +4,21 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadein 500ms;
+  animation-fill-mode: both;
   z-index: 10;
 }
 
 .Backdrop.zIndex90 {
   z-index: 90;
+}
+
+@keyframes fadein {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 }
