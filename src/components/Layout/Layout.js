@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import classes from "./Layout.module.css";
 import Toolbar from "../navigation/Toolbar/Toolbar";
@@ -9,6 +9,14 @@ import ScrollTop from "../UI/ScrollTop/ScrollTop";
 
 const Layout = (props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [isMenuOpen]);
 
   return (
     <>
