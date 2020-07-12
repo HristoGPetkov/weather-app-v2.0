@@ -5,6 +5,7 @@ import classes from "./ScrollTop.module.css";
 const ScrollTop = () => {
   const [show, setShow] = useState(false);
 
+  // Debounce function
   const debounce = (callback, wait) => {
     let timerId;
 
@@ -19,24 +20,23 @@ const ScrollTop = () => {
     };
   };
 
+  // Shows the scroll to the top button if enough is scrolled down
   const scrollHandler = () => {
-    const docHeight = document.documentElement.clientHeight;
-
-    setShow(window.pageYOffset > docHeight);
+    setShow(window.pageYOffset > document.documentElement.clientHeight);
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", debounce(scrollHandler, 200));
-  }, []);
+    const handler = debounce(scrollHandler, 100);
 
-  useEffect(() => {
-    return () => window.removeEventListener("scroll", debounce(scrollHandler));
+    window.addEventListener("scroll", handler);
+
+    return () => window.removeEventListener("scroll", handler);
   }, []);
 
   return (
     <div
       className={`${classes.ScrollTop} ${show ? classes.Show : ""}`}
-      onClick={() => window.scrollTo(0, 0)}
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     ></div>
   );
 };
