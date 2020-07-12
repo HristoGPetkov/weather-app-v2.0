@@ -106,5 +106,29 @@ export const getCurrentTime = (date) => {
   return h + ":" + m;
 };
 
-export const translate = (lang, bgWord, enWord) =>
-  lang === "bg" ? bgWord : enWord;
+export const translate = (lang, bgWord, enWord) => {
+  return lang === "bg" ? bgWord : enWord;
+};
+
+export const getScrollWidth = () => {
+  const div = document.createElement("div"); // create element with scrollbar to find the width
+  div.style =
+    "width: 50px; height: 50px; visibility: hidden; overflow-y: scroll";
+  document.body.append(div);
+
+  const scrollWidth = div.offsetWidth - div.clientWidth; // the width of the scrollbar
+  div.remove(); // then remove it
+
+  return scrollWidth;
+};
+
+export const extraPaddingRight = (amount, ...elements) => {
+  elements.forEach((element) => {
+    // get current padding rigth
+    const currentPaddingRight = parseFloat(
+      getComputedStyle(element).paddingRight
+    );
+    // add extra padding
+    element.style.paddingRight = currentPaddingRight + amount + "px";
+  });
+};
