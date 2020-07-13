@@ -8,7 +8,9 @@
   right: 2rem;
   bottom: 2rem;
   cursor: pointer;
-  display: none;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 200ms linear, opacity 200ms linear;
 }
 
 .ScrollTop:before,
@@ -33,5 +35,6 @@
 }
 
 .Show {
-  display: block;
+  transform: scale(1);
+  opacity: 1;
 }
