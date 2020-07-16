@@ -25,3 +25,9 @@
     display: none;
   }
 }
+
+@media only screen and (max-height: 25em) {
+  .Sidedrawer {
+    padding-top: 2rem;
+  }
+}
